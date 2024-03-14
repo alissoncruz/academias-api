@@ -4,6 +4,7 @@ import com.core.exception.BusinessException;
 import com.core.model.Aluno;
 import com.core.utils.DateUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -13,11 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
-@AllArgsConstructor
+
 @Service
 public class AlunoService {
 
-    private final AlunoRepository repository;
+    @Autowired
+    private AlunoRepository repository;
     private final String OBJECT_NOTFOUND = "Aluno nao encontrado.";
 
     @Transactional

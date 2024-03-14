@@ -1,7 +1,9 @@
-FROM openjdk
+FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
-COPY target/ctferro-1.0.jar /app/ctferro.jar
+COPY target/ctferro-1.0-SNAPSHOT.jar ctferro-1.0-SNAPSHOT.jar
 
-ENTRYPOINT ["java" , "-jar", "ctferro.jar"]
+EXPOSE: 8080
+
+CMD ["java" , "-jar", "ctferro-1.0-SNAPSHOT.jar"]
