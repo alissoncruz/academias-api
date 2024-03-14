@@ -17,8 +17,9 @@
 
     <properties>
         <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+<!--        <maven.compiler.source>17</maven.compiler.source>-->
+<!--        <maven.compiler.target>17</maven.compiler.target>-->
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -72,11 +73,6 @@
         </dependency>
 
 
-        <!--        <dependency>-->
-<!--            <groupId>org.springdoc</groupId>-->
-<!--            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-<!--            <version>2.0.3</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -112,43 +108,14 @@
 
     <build>
         <plugins>
-
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-
-                <version>3.1</version>
-<!--                <configuration>-->
-<!--                    <release>17</release>-->
-<!--                </configuration>-->
+                <version>3.8.1</version>
                 <configuration>
-
-
-                    <fork>true</fork>
-                    <executable>C:\Users\aliss\.jdks\openjdk-17.0.2\bin\javac.exe</executable>
                     <source>17</source>
                     <target>17</target>
-                    <compilerArgument>-XDignore.symbol.file</compilerArgument>
                 </configuration>
-
             </plugin>
-
-
-
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-toolchains-plugin</artifactId>-->
-<!--                <version>1.1</version>-->
-
-<!--                <configuration>-->
-<!--                    <toolchains>-->
-<!--                        <jdk>-->
-<!--                            <version>17</version>-->
-<!--                        </jdk>-->
-<!--                    </toolchains>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
 
         </plugins>
 
