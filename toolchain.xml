@@ -1,0 +1,12 @@
+<toolchains>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.8</version>
+            <vendor>sun</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>C:\Users\aliss\.jdks\openjdk-17.0.2</jdkHome>
+        </configuration>
+    </toolchain>
+</toolchains>
