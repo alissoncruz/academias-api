@@ -35,6 +35,6 @@ jobs:
       - name: Remove docker container
         run: docker rm -f deploy-ctferro-api
       - name: Run docker container
-        run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${{secrets.MONGO_DB}} --name deploy-ctferro-api alissoncruzsi/deploy-ctferro-api
+        run: docker run -d -p 8080:8080 -e DATABASE_URI='${{secrets.MONGO_HOST}}' -e DATABASE_NAME='${{secrets.MONGO_DB}}' --name deploy-ctferro-api alissoncruzsi/deploy-ctferro-api
 
 
