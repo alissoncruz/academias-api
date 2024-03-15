@@ -1,9 +1,9 @@
 spring:
   data:
     mongodb:
-      host: '${MONGO_HOST:localhost}'
+      host: '${secrets.MONGO_HOST:localhost}'
       port: 27017
-      database: '${MONGO_DB:ctferrodb}'
+      database: '${secrets.MONGO_DB:ctferrodb}'
 
   cloud:
     kubernetes:
