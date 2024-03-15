@@ -21,7 +21,7 @@ jobs:
       - name: Build Java
         run: mvn clean install -DskipTests
       - name: Login Docker Hub
-        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p '${{secrets.DOCKER_PASSWORD}}'
       - name: Build docker image
         run: docker build -t alissoncruzsi/ctferro-api .
       - name: Push image docker
@@ -35,6 +35,6 @@ jobs:
       - name: Remove docker container
         run: docker rm -f deploy-ctferro
       - name: Run docker container
-        run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${secrets.MONGO_DB} --name deploy-ctferro alissoncruzsi/ctferro-api
+        run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${{secrets.MONGO_DB}} --name deploy-ctferro alissoncruzsi/ctferro-api
 
 
