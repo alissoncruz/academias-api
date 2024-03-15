@@ -32,6 +32,8 @@ jobs:
     steps:
       - name: Pull image from docker hub
         run: docker pull alissoncruzsi/ctferro-api:latest
+      - name: Remove docker container
+        run: docker rm -f deploy-ctferro
       - name: Run docker container
         run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${secrets.MONGO_DB} --name deploy-ctferro alissoncruzsi/ctferro-api
 
