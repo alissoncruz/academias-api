@@ -26,4 +26,13 @@ jobs:
         run: docker build -t alissoncruzsi/ctferro-api .
       - name: Push image docker
         run: docker push alissoncruzsi/ctferro-api
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull alissoncruzsi/ctferro-api:latest
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name deploy-ctferro alissoncruzsi/ctferro-api
+
 
