@@ -23,18 +23,18 @@ jobs:
       - name: Login Docker Hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p '${{secrets.DOCKER_PASSWORD}}'
       - name: Build docker image
-        run: docker build -t alissoncruzsi/ctferro-api .
+        run: docker build -t alissoncruzsi/deploy-ctferro-api .
       - name: Push image docker
-        run: docker push alissoncruzsi/ctferro-api
+        run: docker push alissoncruzsi/deploy-ctferro-api
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull alissoncruzsi/ctferro-api:latest
+        run: docker pull alissoncruzsi/deploy-ctferro-api:latest
       - name: Remove docker container
-        run: docker rm -f deploy-ctferro
+        run: docker rm -f deploy-ctferro-api
       - name: Run docker container
-        run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${{secrets.MONGO_DB}} --name deploy-ctferro alissoncruzsi/ctferro-api
+        run: docker run -d -p 8080:8080 -e DATABASE_URI=${{secrets.MONGO_HOST}} -e DATABASE_NAME=${{secrets.MONGO_DB}} --name deploy-ctferro-api alissoncruzsi/deploy-ctferro-api
 
 
